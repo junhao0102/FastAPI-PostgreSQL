@@ -3,7 +3,7 @@ import asyncio
 import uvicorn
 from dotenv import load_dotenv
 
-# 解析伺服器運行模式的命令行參數
+""" 解析伺服器運行模式的命令行參數 """
 def parse_server_mode():
     # 創建命令行解析器
     parser = argparse.ArgumentParser(description="Run the server in different modes.")
@@ -13,7 +13,7 @@ def parse_server_mode():
     parser.add_argument("--dev", action="store_true", help="Run the server in development mode.")
     return parser.parse_args()
 
-# 根據運行模式動態載入 .env 文件
+""" 根據運行模式動態載入 .env 文件 """
 def load_environment(mode_args):
     if mode_args.prod:
         load_dotenv("./environments/.env.prod")
@@ -24,6 +24,7 @@ def load_environment(mode_args):
     else:
         raise ValueError("Please specify a mode using --prod, --test, or --dev.")
 
+""" 主函數，啟動伺服器 """
 if __name__ == "__main__":
     # 解析命令行參數，動態載入環境配置
     args = parse_server_mode()

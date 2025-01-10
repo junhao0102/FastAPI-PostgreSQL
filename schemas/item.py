@@ -1,12 +1,19 @@
 from pydantic import BaseModel
 
 # 定義 Item 模型
-class Item(BaseModel):
+class CreateItem(BaseModel):
     name: str
     price: float
     owner: str
     
-class ItemResponse(BaseModel):
+class CreateItemResponse(BaseModel):
     name: str
     price: float
     owner: str
+    
+class ReadItem(BaseModel):
+    user:str
+    
+class ReadItemResponse(BaseModel):
+    user: str
+    item: list

@@ -3,7 +3,7 @@ from setting import get_settings
 
 router = APIRouter(tags=["info"],prefix="/api")
 
-# 定義 info get 路由
+""" 定義 info get 路由 """
 @router.get("/info")
 def read_info():
     settings = get_settings()

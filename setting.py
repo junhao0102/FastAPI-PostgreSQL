@@ -1,7 +1,7 @@
 import os
 from functools import lru_cache
 
-# 用於管理應用程式配置的 class
+""" 用於管理應用程式配置的 class """
 class Settings:
     def __init__(self):
         self.app_name = os.getenv("APP_NAME", "FastAPI App")
@@ -11,7 +11,7 @@ class Settings:
         self.port = int(os.getenv("PORT", 8000))
         self.database_url = os.getenv("DATABASE_URL")
         
-# 緩存並加載應用的環境設定
+""" 緩存並加載應用的環境設定 """
 @lru_cache()
 def get_settings():
     return Settings()
